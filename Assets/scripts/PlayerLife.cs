@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    bool dead = false;
+    private void Update()
+    {
+        if (transform.position.y < -10f && !dead) Death();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy body"))
@@ -19,6 +24,7 @@ public class PlayerLife : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         Invoke(nameof(Respawn), 1.5f);
+        dead = true;
     }
 
     void Respawn()
