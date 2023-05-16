@@ -12,11 +12,12 @@ public class itemCollector : MonoBehaviour
     int coins = 0;
 
     [SerializeField] TMP_Text coinsText;
+    [SerializeField] AudioSource coinsSound;
     private void OnTriggerEnter(Collider other) 
     {
-
             if (other.gameObject.CompareTag("coin"))
             {
+                coinsSound.Play();
                 Destroy(other.gameObject);
                 coins++;
                 coinsText.text = "Coins: " + coins;

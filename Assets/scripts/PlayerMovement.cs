@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 5f;
     [SerializeField] Transform legs;
     [SerializeField] LayerMask ground;
-
+    [SerializeField] AudioSource jumpSound;  
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && GroundCheck()) 
         {
             Jump();
+            jumpSound.Play();
         }
 
     }

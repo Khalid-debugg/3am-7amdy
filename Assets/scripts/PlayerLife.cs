@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] AudioSource deathSound;
     private bool dead = false;
 
     private void Update()
@@ -26,6 +27,7 @@ public class PlayerLife : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         Invoke(nameof(Respawn), 1.5f);
         dead = true;
+        deathSound.Play();
     }
 
     void Respawn()
