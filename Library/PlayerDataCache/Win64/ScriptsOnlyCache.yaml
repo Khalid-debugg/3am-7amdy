@@ -75,6 +75,9 @@ ScriptsOnlyBuild:
     fullTypeName: EndMenu
     methodName: QuitGame
   - assembly: Assembly-CSharp
+    fullTypeName: EndMenu
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
     fullTypeName: quitAbout
     methodName: backToStart
   sceneClasses:
